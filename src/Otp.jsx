@@ -241,12 +241,13 @@ const AuthComponent = () => {
         <Toaster toastOptions={{ duration: 4000 }} />
         <div id="recaptcha-container"></div>
 
-        {/* Notice ticker */}
-        <div className="fixed top-0 left-0 w-full bg-yellow-500 text-black text-center py-2 font-bold z-50">
-          For testing purposes, you can use the following:
-          <br />
-          Phone Number: +91 9999988888 | OTP: 234567 (Fictional OTP for testing purposes)
-        </div>
+        {!user && (
+  <div className="fixed top-0 left-0 w-full bg-yellow-500 text-black text-center py-2 font-bold z-50">
+    For testing purposes, you can use the following:
+    <br />
+    Phone Number: +91 9999988888 | OTP: 234567 (Fictional OTP for testing purposes)
+  </div>
+)}
 
         {user ? (
           <Home />
