@@ -1,5 +1,6 @@
 
 # Udyam Sathi  
+![image](https://github.com/user-attachments/assets/eea0b4d4-2e6b-4428-84de-097c5de1b375)
 
 ## Overview  
 **Udyam Sathi** is a React-based platform designed to empower workers, business owners, and educators by providing networking opportunities, financial learning, and government support. It integrates Firebase for authentication, Tailwind CSS for styling, and Polygon blockchain for secure financial transactions.  
