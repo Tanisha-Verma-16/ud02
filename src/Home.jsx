@@ -15,7 +15,7 @@ const HelpDesk = () => <div className="p-6"> Help Desk Content</div>;
 
 function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [currentPage, setCurrentPage] = useState("Dashboard");
+  const [currentPage, setCurrentPage] = useState("Udyam Sathi");
   const [language, setLanguage] = useState("EN");
   const [showMenu, setShowMenu] = useState(false);
 
