@@ -1,8 +1,51 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Udyam Sathi  
 
-Currently, two official plugins are available:
+## Overview  
+**Udyam Sathi** is a React-based platform designed to empower workers, business owners, and educators by providing networking opportunities, financial learning, and government support. It integrates Firebase for authentication, Tailwind CSS for styling, and Polygon blockchain for secure financial transactions.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features  
+- **Login with Phone Number & OTP**: Secure authentication using Firebase.  
+- **Profile Creation**: Personalized onboarding for different user roles.  
+- **Networking Hub**: Connect, collaborate, and grow professional relationships.  
+- **Blockchain Finance**: Secure and transparent financial management using Polygon.  
+- **Financial Learning**: Interactive modules to improve financial literacy.  
+- **Government Support**: Real-time updates on business growth schemes.  
+
+## Tech Stack  
+- **Frontend**: React.js, Tailwind CSS  
+- **Authentication**: Firebase (Phone Number + OTP)  
+- **Blockchain**: Polygon  
+- **Hosting**: Vercel  
+
+## Deployment  
+The app is live at: **[Udyam Sathi on Vercel](https://udyamsathi.vercel.app/)**  
+
+## Test Login Credentials  
+You can test the authentication using the following:  
+- **Phone Number**: `+91 9999988888`  
+- **OTP**: `234567` (Fictional OTP for testing purposes)  
+
+## Installation & Setup  
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/Tanisha-Verma-16/ud02.git
+   git clone 
+   cd udyam-sathi
+   ```  
+2. Install dependencies:  
+   ```sh
+   npm install
+   ```  
+3. Set up Firebase:  
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)  
+   - Enable **Phone Authentication**  
+   - Add your Firebase config to `.env`  
+4. Start the development server:  
+   ```sh
+   npm run dev
+   ```  
+
+## Contribution  
+Feel free to contribute by submitting a pull request or reporting issues.  
+
