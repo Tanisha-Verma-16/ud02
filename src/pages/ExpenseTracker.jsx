@@ -546,8 +546,7 @@ const ConnectionPage = () => (
   </div>
 );
 
-// BusinessRegistrationPage Component
-const BusinessRegistrationPage = () => (
+  const BusinessRegistrationPage = () => (
   <div className="min-h-screen bg-gray-100 flex items-center justify-center">
     <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
       <h2 className="text-2xl font-bold mb-6 flex items-center">
@@ -559,10 +558,13 @@ const BusinessRegistrationPage = () => (
           type="text"
           placeholder="Business Name"
           value={businessRegistration.businessName}
-          onChange={(e) => setBusinessRegistration({
-            ...businessRegistration, 
-            businessName: e.target.value
-          })}
+          onChange={(e) => {
+            const value = e.target.value;
+            setBusinessRegistration(prev => ({
+              ...prev,
+              businessName: value
+            }));
+          }}
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
@@ -570,10 +572,13 @@ const BusinessRegistrationPage = () => (
           type="text"
           placeholder="Registration Number"
           value={businessRegistration.registrationNumber}
-          onChange={(e) => setBusinessRegistration({
-            ...businessRegistration, 
-            registrationNumber: e.target.value
-          })}
+          onChange={(e) => {
+            const value = e.target.value;
+            setBusinessRegistration(prev => ({
+              ...prev,
+              registrationNumber: value
+            }));
+          }}
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
@@ -581,10 +586,13 @@ const BusinessRegistrationPage = () => (
           type="text"
           placeholder="Owner Name"
           value={businessRegistration.ownerName}
-          onChange={(e) => setBusinessRegistration({
-            ...businessRegistration, 
-            ownerName: e.target.value
-          })}
+          onChange={(e) => {
+            const value = e.target.value;
+            setBusinessRegistration(prev => ({
+              ...prev,
+              ownerName: value
+            }));
+          }}
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
@@ -592,19 +600,25 @@ const BusinessRegistrationPage = () => (
           type="email"
           placeholder="Email"
           value={businessRegistration.email}
-          onChange={(e) => setBusinessRegistration({
-            ...businessRegistration, 
-            email: e.target.value
-          })}
+          onChange={(e) => {
+            const value = e.target.value;
+            setBusinessRegistration(prev => ({
+              ...prev,
+              email: value
+            }));
+          }}
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
         <select
           value={businessRegistration.businessType}
-          onChange={(e) => setBusinessRegistration({
-            ...businessRegistration, 
-            businessType: e.target.value
-          })}
+          onChange={(e) => {
+            const value = e.target.value;
+            setBusinessRegistration(prev => ({
+              ...prev,
+              businessType: value
+            }));
+          }}
           className="w-full px-3 py-2 border rounded-lg"
           required
         >
@@ -625,7 +639,7 @@ const BusinessRegistrationPage = () => (
   </div>
 );
 
-// AddExpensePage Component
+// Add Expense Page Component with Fixed Input Handling
 const AddExpensePage = () => (
   <div className="min-h-screen bg-gray-100 flex items-center justify-center">
     <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
@@ -636,14 +650,28 @@ const AddExpensePage = () => (
       <form onSubmit={addExpense} className="space-y-4">
         <input 
           type="text"
-          name="description"
+          value={newExpense.description}
+          onChange={(e) => {
+            const value = e.target.value;
+            setNewExpense(prev => ({
+              ...prev,
+              description: value
+            }));
+          }}
           placeholder="Expense Description"
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
         <input 
           type="number"
-          name="amount"
+          value={newExpense.amount}
+          onChange={(e) => {
+            const value = e.target.value;
+            setNewExpense(prev => ({
+              ...prev,
+              amount: value
+            }));
+          }}
           placeholder="Amount (₹)"
           className="w-full px-3 py-2 border rounded-lg"
           required 
@@ -666,7 +694,7 @@ const AddExpensePage = () => (
   </div>
 );
 
-// RequestLoanPage Component
+// Request Loan Page Component with Fixed Input Handling
 const RequestLoanPage = () => (
   <div className="min-h-screen bg-gray-100 flex items-center justify-center">
     <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
@@ -677,21 +705,42 @@ const RequestLoanPage = () => (
       <form onSubmit={requestLoan} className="space-y-4">
         <input 
           type="text"
-          name="description"
+          value={newLoan.description}
+          onChange={(e) => {
+            const value = e.target.value;
+            setNewLoan(prev => ({
+              ...prev,
+              description: value
+            }));
+          }}
           placeholder="Loan Purpose"
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
         <input 
           type="number"
-          name="amount"
+          value={newLoan.amount}
+          onChange={(e) => {
+            const value = e.target.value;
+            setNewLoan(prev => ({
+              ...prev,
+              amount: value
+            }));
+          }}
           placeholder="Loan Amount (₹)"
           className="w-full px-3 py-2 border rounded-lg"
           required 
         />
         <input 
           type="number"
-          name="interestRate"
+          value={newLoan.interestRate}
+          onChange={(e) => {
+            const value = e.target.value;
+            setNewLoan(prev => ({
+              ...prev,
+              interestRate: value
+            }));
+          }}
           placeholder="Expected Interest Rate (%)"
           className="w-full px-3 py-2 border rounded-lg"
           required 
@@ -713,6 +762,174 @@ const RequestLoanPage = () => (
     </div>
   </div>
 );
+
+// // BusinessRegistrationPage Component
+// const BusinessRegistrationPage = () => (
+//   <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+//     <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+//       <h2 className="text-2xl font-bold mb-6 flex items-center">
+//         <Building2 className="mr-3 text-blue-600" /> 
+//         Business Registration
+//       </h2>
+//       <form onSubmit={handleBusinessRegistration} className="space-y-4">
+//         <input 
+//           type="text"
+//           placeholder="Business Name"
+//           value={businessRegistration.businessName}
+//           onChange={(e) => setBusinessRegistration({
+//             ...businessRegistration, 
+//             businessName: e.target.value
+//           })}
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <input 
+//           type="text"
+//           placeholder="Registration Number"
+//           value={businessRegistration.registrationNumber}
+//           onChange={(e) => setBusinessRegistration({
+//             ...businessRegistration, 
+//             registrationNumber: e.target.value
+//           })}
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <input 
+//           type="text"
+//           placeholder="Owner Name"
+//           value={businessRegistration.ownerName}
+//           onChange={(e) => setBusinessRegistration({
+//             ...businessRegistration, 
+//             ownerName: e.target.value
+//           })}
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <input 
+//           type="email"
+//           placeholder="Email"
+//           value={businessRegistration.email}
+//           onChange={(e) => setBusinessRegistration({
+//             ...businessRegistration, 
+//             email: e.target.value
+//           })}
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <select
+//           value={businessRegistration.businessType}
+//           onChange={(e) => setBusinessRegistration({
+//             ...businessRegistration, 
+//             businessType: e.target.value
+//           })}
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required
+//         >
+//           <option value="">Select Business Type</option>
+//           <option value="sole-proprietorship">Sole Proprietorship</option>
+//           <option value="partnership">Partnership</option>
+//           <option value="llc">Limited Liability Company</option>
+//           <option value="corporation">Corporation</option>
+//         </select>
+//         <button 
+//           type="submit"
+//           className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
+//         >
+//           Register Business
+//         </button>
+//       </form>
+//     </div>
+//   </div>
+// );
+
+// // AddExpensePage Component
+// const AddExpensePage = () => (
+//   <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+//     <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+//       <h2 className="text-2xl font-bold mb-6 flex items-center">
+//         <CreditCard className="mr-3 text-green-600" /> 
+//         Add New Expense
+//       </h2>
+//       <form onSubmit={addExpense} className="space-y-4">
+//         <input 
+//           type="text"
+//           name="description"
+//           placeholder="Expense Description"
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <input 
+//           type="number"
+//           name="amount"
+//           placeholder="Amount (₹)"
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <button 
+//           type="submit"
+//           className="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition"
+//         >
+//           Record Expense
+//         </button>
+//         <button 
+//           type="button"
+//           onClick={() => setCurrentPage('dashboard')}
+//           className="w-full bg-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-400 transition mt-2"
+//         >
+//           Cancel
+//         </button>
+//       </form>
+//     </div>
+//   </div>
+// );
+
+// // RequestLoanPage Component
+// const RequestLoanPage = () => (
+//   <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+//     <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+//       <h2 className="text-2xl font-bold mb-6 flex items-center">
+//         <HandCoins className="mr-3 text-purple-600" /> 
+//         Request Loan
+//       </h2>
+//       <form onSubmit={requestLoan} className="space-y-4">
+//         <input 
+//           type="text"
+//           name="description"
+//           placeholder="Loan Purpose"
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <input 
+//           type="number"
+//           name="amount"
+//           placeholder="Loan Amount (₹)"
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <input 
+//           type="number"
+//           name="interestRate"
+//           placeholder="Expected Interest Rate (%)"
+//           className="w-full px-3 py-2 border rounded-lg"
+//           required 
+//         />
+//         <button 
+//           type="submit"
+//           className="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition"
+//         >
+//           Submit Loan Request
+//         </button>
+//         <button 
+//           type="button"
+//           onClick={() => setCurrentPage('dashboard')}
+//           className="w-full bg-gray-300 text-gray-700 py-3 rounded-lg hover:bg-gray-400 transition mt-2"
+//         >
+//           Cancel
+//         </button>
+//       </form>
+//     </div>
+//   </div>
+// );
 
   return (
     <div>
