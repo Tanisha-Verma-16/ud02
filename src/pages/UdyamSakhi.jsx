@@ -21,7 +21,7 @@ const UdyamSakhi = () => {
         raised: 18500,
         supporters: 34,
         daysLeft: 12,
-        image: "/api/placeholder/400/200",
+        image: "https://i.pinimg.com/736x/f1/94/45/f194454b9032998f64722539a5b76641.jpg",
         tags: ["Handicrafts", "Traditional", "Women Artisans"]
     },
     {
@@ -33,7 +33,7 @@ const UdyamSakhi = () => {
       raised: 28000,
       supporters: 45,
       daysLeft: 8,
-      image: "/api/placeholder/400/200",
+      image: "https://media.assettype.com/homegrown%2Fimport%2Fbook%2F13657-gursnpsgpl-1639472791.jpeg",
       tags: ["Food", "Organic", "Health"]
     },
     {
@@ -45,7 +45,7 @@ const UdyamSakhi = () => {
       raised: 15000,
       supporters: 28,
       daysLeft: 15,
-      image: "/api/placeholder/400/200",
+      image: "https://www.ankindia.org/images/slider/getting-girls-to-code.jpg",
       tags: ["Education", "Technology", "Rural Development"]
     }
   ]);
