@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBars, FaTachometerAlt, FaUser, FaBook, FaRegBuilding, FaNetworkWired, FaMoneyBillWave, FaInfoCircle, FaUserCircle } from "react-icons/fa";
+import { FaBars, FaUser, FaBook, FaRegBuilding, FaNetworkWired, FaMoneyBillWave, FaInfoCircle, FaUserCircle, FaUserFriends, FaFemale } from "react-icons/fa";
 import ProfilePage from './pages/Profile'
 import ELearningPlatform from './pages/ExploreCourses'
 import Preview from "./pages/UdyamNetwork";
