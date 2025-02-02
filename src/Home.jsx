@@ -8,6 +8,8 @@ import UdyamSathiPlatform from './pages/Platform'
 import ExpenseTracker from "./pages/ExpenseTracker";
 import UdyamSathiHelpdesk from './pages/Helpdesk';
 import logo from "./Logo.jpg";
+import UdyamSakhi from './pages/UdyamSakhi';
+
 
 const Dashboard = () => <div className="p-6">Dashboard Content</div>;
 const AboutUdyam = () => <div className="p-6">About Udyam Saathi Content</div>;
@@ -25,6 +27,7 @@ function Home() {
   const renderPage = () => {
     switch (currentPage) {
       case "Udyam Sathi": return <UdyamSathiPlatform />;
+      case "Udyam Sakhi": return <UdyamSakhi />;
       case "Build Your Profile": return <ProfilePage />;
       case "Explore Courses": return <ELearningPlatform />;
       case "Government Support": return <GovernmentSchemesDashboard />;
@@ -46,13 +49,14 @@ function Home() {
           </button>
         </div>
         <ul className="mt-4 space-y-4 px-4">
-          {["Udyam Sathi", "Build Your Profile", "Explore Courses", "Government Support", "UdyamSaathi Network", "Expense Management", "Help Desk"].map((page, index) => (
+          {["Udyam Sathi", "Udyam Sakhi", "Build Your Profile", "Explore Courses", "Government Support", "UdyamSaathi Network", "Expense Management", "Help Desk"].map((page, index) => (
             <li
               key={index}
               onClick={() => handleMenuClick(page)}
               className="cursor-pointer hover:bg-blue-600 p-2 rounded flex items-center"
             >
-              {page === "Udyam Sathi" && <FaTachometerAlt className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
+              {page === "Udyam Sathi" && <FaUserFriends className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
+              {page === "Udyam Sakhi" && <FaFemale className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Build Your Profile" && <FaUser className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Explore Courses" && <FaBook className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Government Support" && <FaRegBuilding className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
