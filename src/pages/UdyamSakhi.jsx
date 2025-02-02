@@ -83,36 +83,7 @@ const UdyamSakhi = () => {
     }
   };
 
-  const handleCreateSubmit = (e) => {
-    e.preventDefault();
-    
-    // Create new funding request
-    const newRequest = {
-      id: fundingRequests.length + 1,
-      name: formData.name,
-      business: formData.business,
-      story: formData.story,
-      amount: parseFloat(formData.amount),
-      raised: 0,
-      supporters: 0,
-      daysLeft: Math.ceil((new Date(formData.deadline) - new Date()) / (1000 * 60 * 60 * 24)),
-      image: formData.image ? URL.createObjectURL(formData.image) : "/api/placeholder/400/200",
-      tags: formData.tags.split(',').map(tag => tag.trim())
-    };
 
-    // Add to the beginning of the list
-    setFundingRequests([newRequest, ...fundingRequests]);
-    setShowCreateForm(false);
-    setFormData({
-      name: '',
-      business: '',
-      story: '',
-      amount: '',
-      deadline: '',
-      tags: '',
-      image: null
-    });
-  };
 
   // Function to handle donation submission
   const handleDonationSubmit = async (e) => {
@@ -167,115 +138,149 @@ const UdyamSakhi = () => {
         alert('There was an error processing your donation. Please try again.');
     }
 };
-  const CreateRequestForm = () => {
-    if (!showCreateForm) return null;
 
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-          <h3 className="text-2xl font-bold mb-6">Create Funding Request</h3>
-          
-          <form onSubmit={handleCreateSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-              <input
-                type="text"
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full border rounded-lg px-4 py-2"
-                required
-              />
-            </div>
+const CreateRequestForm = ({ onClose, onSubmit, show }) => {
+  const [formData, setFormData] = useState(['', '', '', '', '', '', null]);
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
-              <input
-                type="text"
-                value={formData.business}
-                onChange={(e) => setFormData({...formData, business: e.target.value})}
-                className="w-full border rounded-lg px-4 py-2"
-                required
-              />
-            </div>
+  const handleInputChange = (index, value) => {
+    setFormData(prev => {
+      const newData = [...prev];
+      newData[index] = value;
+      return newData;
+    });
+  };
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Business Story</label>
-              <textarea
-                value={formData.story}
-                onChange={(e) => setFormData({...formData, story: e.target.value})}
-                className="w-full border rounded-lg px-4 py-2"
-                rows="4"
-                required
-              />
-            </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const newRequest = {
+      id: Date.now(),
+      name: formData[0],
+      business: formData[1],
+      story: formData[2],
+      amount: parseFloat(formData[3]),
+      raised: 0,
+      supporters: 0,
+      daysLeft: Math.ceil((new Date(formData[4]) - new Date()) / (1000 * 60 * 60 * 24)),
+      image: formData[6] ? URL.createObjectURL(formData[6]) : "/api/placeholder/400/200",
+      tags: formData[5].split(',').map(tag => tag.trim())
+    };
+    
+    onSubmit(newRequest);
+    // Reset form data
+    setFormData(['', '', '', '', '', '', null]);
+    onClose();
+  };
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Funding Amount (₹)</label>
-              <input
-                type="number"
-                value={formData.amount}
-                onChange={(e) => setFormData({...formData, amount: e.target.value})}
-                className="w-full border rounded-lg px-4 py-2"
-                min="1000"
-                required
-              />
-            </div>
+  if (!show) return null;
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Campaign Deadline</label>
-              <input
-                type="date"
-                value={formData.deadline}
-                onChange={(e) => setFormData({...formData, deadline: e.target.value})}
-                className="w-full border rounded-lg px-4 py-2"
-                min={new Date().toISOString().split('T')[0]}
-                required
-              />
-            </div>
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <h3 className="text-2xl font-bold mb-6">Create Funding Request</h3>
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+            <input
+              type="text"
+              value={formData[0]}
+              onChange={(e) => handleInputChange(0, e.target.value)}
+              className="w-full border rounded-lg px-4 py-2"
+              required
+            />
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Tags (comma-separated)</label>
-              <input
-                type="text"
-                value={formData.tags}
-                onChange={(e) => setFormData({...formData, tags: e.target.value})}
-                className="w-full border rounded-lg px-4 py-2"
-                placeholder="e.g., Handicrafts, Traditional, Artisan"
-                required
-              />
-            </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
+            <input
+              type="text"
+              value={formData[1]}
+              onChange={(e) => handleInputChange(1, e.target.value)}
+              className="w-full border rounded-lg px-4 py-2"
+              required
+            />
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Business Image</label>
-              <input
-                type="file"
-                onChange={(e) => setFormData({...formData, image: e.target.files[0]})}
-                className="w-full"
-                accept="image/*"
-              />
-            </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Business Story</label>
+            <textarea
+              value={formData[2]}
+              onChange={(e) => handleInputChange(2, e.target.value)}
+              className="w-full border rounded-lg px-4 py-2"
+              rows="4"
+              required
+            />
+          </div>
 
-            <div className="flex justify-end gap-4 mt-6">
-              <button
-                type="button"
-                onClick={() => setShowCreateForm(false)}
-                className="px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-50"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
-              >
-                Create Campaign
-              </button>
-            </div>
-          </form>
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Funding Amount (₹)</label>
+            <input
+              type="number"
+              value={formData[3]}
+              onChange={(e) => handleInputChange(3, e.target.value)}
+              className="w-full border rounded-lg px-4 py-2"
+              min="1000"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Campaign Deadline</label>
+            <input
+              type="date"
+              value={formData[4]}
+              onChange={(e) => handleInputChange(4, e.target.value)}
+              className="w-full border rounded-lg px-4 py-2"
+              min={new Date().toISOString().split('T')[0]}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Tags (comma-separated)</label>
+            <input
+              type="text"
+              value={formData[5]}
+              onChange={(e) => handleInputChange(5, e.target.value)}
+              className="w-full border rounded-lg px-4 py-2"
+              placeholder="e.g., Handicrafts, Traditional, Artisan"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Business Image</label>
+            <input
+              type="file"
+              onChange={(e) => handleInputChange(6, e.target.files[0])}
+              className="w-full"
+              accept="image/*"
+            />
+          </div>
+
+          <div className="flex justify-end gap-4 mt-6">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-50"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Create Campaign
+            </button>
+          </div>
+        </form>
       </div>
-    );
-  }; 
-  
+    </div>
+  );
+};
+
+
   const DonationModal = () => {
     if (!showDonationModal || !selectedRequest) return null;
 
@@ -538,7 +543,14 @@ return (
     )}
 
     {/* Create Request Form Modal */}
-    <CreateRequestForm />
+    <CreateRequestForm
+    show={showCreateForm}
+    onClose={() => setShowCreateForm(false)}
+    onSubmit={(newRequest) => {
+      setFundingRequests(prev => [newRequest, ...prev]);
+      setShowCreateForm(false); // Ensure form closes after submission
+    }}
+  />
     <DonationModal />
 </div>
 );
