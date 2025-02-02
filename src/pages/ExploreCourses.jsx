@@ -49,6 +49,7 @@ const ELearningPlatform = () => {
 
     if (allCorrect) {
       setCoins(prev => prev + 100);
+      onCoinEarned(100); 
       setCompletedModules(prev => new Set([...prev, moduleId]));
       setShowCoinAlert(true);
       setTimeout(() => setShowCoinAlert(false), 3000);

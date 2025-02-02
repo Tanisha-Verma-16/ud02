@@ -18,6 +18,7 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/vite": "^4.0.3",
     "autoprefixer": "^10.4.20",
+    "canvas-confetti": "^1.9.3",
     "chai": "^5.1.2",
     "d3-geo": "^3.1.1",
     "ethereum-waffle": "^4.0.10",
