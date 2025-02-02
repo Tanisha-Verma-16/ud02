@@ -11,14 +11,20 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^5.2.0",
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.3",
     "autoprefixer": "^10.4.20",
+    "chai": "^5.1.2",
     "d3-geo": "^3.1.1",
-    "ethers": "^6.0.0",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^5.7.2",
     "firebase": "^11.2.0",
     "framer-motion": "^12.0.6",
+    "hardhat": "^2.22.18",
     "lucide-react": "^0.474.0",
     "openai": "^4.81.0",
     "otp-input-react": "^0.3.0",
@@ -32,7 +38,7 @@
     "react-simple-maps": "^3.0.0",
     "recharts": "^2.15.1",
     "shadcn-ui": "^0.9.4",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
