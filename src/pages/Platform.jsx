@@ -7,7 +7,8 @@ import {
   BookOpen, 
   Award, 
   Zap,
-  ArrowRight 
+  ArrowRight,
+  HandHelping
 } from 'lucide-react';
 
 const UdyamSathiPlatform = () => {
@@ -48,6 +49,13 @@ const UdyamSathiPlatform = () => {
       description: 'Real-time updates on business growth schemes',
       color: 'bg-red-100',
       textColor: 'text-red-600'
+    },
+    {
+      icon: HandHelping,
+      title: 'Udyam Sakhi',
+      description: 'Empowering women entrepreneurs with crowdfunding and business support',
+      color: 'bg-pink-100',
+      textColor: 'text-pink-600'
     }
   ];
 
