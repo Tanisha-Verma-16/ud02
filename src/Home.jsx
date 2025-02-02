@@ -9,7 +9,7 @@ import ExpenseTracker from "./pages/ExpenseTracker";
 import UdyamSathiHelpdesk from './pages/Helpdesk';
 import logo from "./Logo.jpg";
 import UdyamSakhi from './pages/UdyamSakhi';
-
+import FinancialLearningHub from './pages/LearnFinance'
 
 const Dashboard = () => <div className="p-6">Dashboard Content</div>;
 const AboutUdyam = () => <div className="p-6">About Udyam Saathi Content</div>;
@@ -29,7 +29,7 @@ function Home() {
       case "Udyam Sathi": return <UdyamSathiPlatform />;
       case "Udyam Sakhi": return <UdyamSakhi />;
       case "Build Your Profile": return <ProfilePage />;
-      case "Explore Courses": return <ELearningPlatform />;
+      case "Learn Finannce": return <FinancialLearningHub />;
       case "Government Support": return <GovernmentSchemesDashboard />;
       case "UdyamSaathi Network": return <Preview />;
       case "Expense Management": return <ExpenseTracker />;
@@ -49,7 +49,7 @@ function Home() {
           </button>
         </div>
         <ul className="mt-4 space-y-4 px-4">
-          {["Udyam Sathi", "Udyam Sakhi", "Build Your Profile", "Explore Courses", "Government Support", "UdyamSaathi Network", "Expense Management", "Help Desk"].map((page, index) => (
+          {["Udyam Sathi", "Udyam Sakhi", "Build Your Profile", "Learn Finannce", "Government Support", "UdyamSaathi Network", "Expense Management", "Help Desk"].map((page, index) => (
             <li
               key={index}
               onClick={() => handleMenuClick(page)}
@@ -58,7 +58,7 @@ function Home() {
               {page === "Udyam Sathi" && <FaUserFriends className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Udyam Sakhi" && <FaFemale className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Build Your Profile" && <FaUser className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
-              {page === "Explore Courses" && <FaBook className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
+              {page === "Learn Finannce" && <FaBook className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Government Support" && <FaRegBuilding className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "UdyamSaathi Network" && <FaNetworkWired className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
               {page === "Expense Management" && <FaMoneyBillWave className={`mr-2 ${isSidebarOpen ? 'text-2xl' : 'text-xl'}`} />}
