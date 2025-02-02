@@ -28,7 +28,7 @@ const UdyamSakhiFreeLancer = () => {
       skills: ["North Indian", "South Indian", "Diet Meals"],
       verified: true,
       projects: 78,
-      image: "/api/placeholder/100/100",
+      image: "https://img.freepik.com/premium-psd/woman-with-necklace-her-neck_1322068-14224.jpg",
       price: 2500
     },
     {
@@ -40,7 +40,7 @@ const UdyamSakhiFreeLancer = () => {
       skills: ["Traditional", "Modern", "Custom Design"],
       verified: true,
       projects: 45,
-      image: "/api/placeholder/100/100",
+      image: "https://img.freepik.com/premium-psd/smiling-indian-female-farmer-with-thumb-up-isolated-transparent-background_1080455-12841.jpg",
       price: 1800
     },
     {
@@ -52,7 +52,7 @@ const UdyamSakhiFreeLancer = () => {
       skills: ["Bridal", "Arabic", "Indo-Western"],
       verified: true,
       projects: 62,
-      image: "/api/placeholder/100/100",
+      image: "https://img.freepik.com/premium-photo/mature-beautiful-indian-woman-against-brown-wall_251136-7805.jpg",
       price: 3000
     }
   ];
